@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>合作浪浪之家</title>
+    <link rel="icon" href="../圖片/icon2.png">
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            background: #FAF9F7;
+            color: #333;
+        }
+
+        header {
+            background: #FF7A21;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .city-block {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 10px 20px;
+        }
+
+        .city-block h2 {
+            color: #2c3b88;
+            font-size: 24px;
+            margin-bottom: 16px;
+            background: #f8b674;
+            border-radius: 12px;
+        }
+
+        .store {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 16px;
+            margin-bottom: 12px;
+            background: #efe5cf;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .store-info {
+            flex: 1;
+        }
+
+        .store-info h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .store-info p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        /* .status.closed {
+            color: rgb(255, 0, 187);
+        }
+
+        .status.open {
+            color: rgb(14, 188, 14);
+        } */
+
+
+        .store-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-left: 16px;
+        }
+
+        .store-actions a {
+            text-decoration: none;
+            background: #deb65e;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 5px double rgb(243, 178, 67);
+            font-size: 14px;
+            color: #333;
+            transition: background 0.2s;
+            text-align: center;
+        }
+
+        .store-actions a:hover {
+            background: #FF7A21;
+            color: white;
+        }
+
+        .store-actions.adjust-actions {
+            margin-top: 20px;
+        }
+
+        .BEBE {
+            font-weight: bold;
+            color: rgba(165, 101, 42, 0.568);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>🐾各地合作的浪浪之家介紹🐾</header>
+    <div class="city-block">
+        <h2>台北市</h2>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>A. 臺北市動物之家</h3>
+                <p>臺北市內湖區安美街191號 · 0287-913-254</p>
+                <p class="status closed">營業中，週二至週日 10:00-12:30  13:30-16:00(※國定假日無提供服務)</p>
+                <p>動物收容所</p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.facebook.com/tcapo.tas/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//114%E5%8F%B0%E5%8C%97%E5%B8%82%E5%85%A7%E6%B9%96%E5%8D%80%E5%AE%89%E7%BE%8E%E8%A1%97191%E8%99%9F%E5%8F%B0%E5%8C%97%E5%B8%82%E5%8B%95%E7%89%A9%E4%B9%8B%E5%AE%B6/@25.060439,121.6007731,17z/data=!4m17!1m7!3m6!1s0x3442aca17b1bb197:0x5bb32ef0b85dc32f!2z5Y-w5YyX5biC5YuV54mp5LmL5a62!8m2!3d25.0604342!4d121.603348!16s%2Fg%2F11b7rhknrn!4m8!1m0!1m5!1m1!1s0x3442aca17b1bb197:0x5bb32ef0b85dc32f!2m2!1d121.603348!2d25.0604342!3e3?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>B. 金汪汪流浪動物家園</h3>
+                <p>台北市大安區敦化南路一段289號6樓之2 · 0229-436-899 </p>
+                <p class="status open">營業中，10:00～16:00 </p>
+                <p>動物收容所 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.cawia.org/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//106%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E6%95%A6%E5%8C%96%E5%8D%97%E8%B7%AF1%E6%AE%B5289%E8%99%9F6+%E4%B9%8B+2/@25.0357424,121.5468804,17z/data=!4m17!1m7!3m6!1s0x3442abce0e7f0ff9:0xaef69336ca5958eb!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A5pWm5YyW5Y2X6LevMeautTI4OeiZnzYg5LmLIDI!3b1!8m2!3d25.0357376!4d121.5494553!4m8!1m0!1m5!1m1!1s0x3442abce0e7f0ff9:0xaef69336ca5958eb!2m2!1d121.5494553!2d25.0357376!3e3?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="city-block">
+        <h2>新北市</h2>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>A. 張媽媽流浪動物之家</h3>
+                <p>新北市平溪區芊蓁林51-7號 · 0936-108-187</p>
+                <p class="status open">營業中，11:00～23:45 </p>
+                <p>動物保護組織</p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.ntpsa.org.tw">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//226%E6%96%B0%E5%8C%97%E5%B8%82%E5%B9%B3%E6%BA%AA%E5%8D%80%E5%BC%B5%E5%AA%BD%E5%AA%BD%E6%B5%81%E6%B5%AA%E5%8B%95%E7%89%A9%E4%B9%8B%E5%AE%B6/@25.0100366,121.7531487,17z/data=!4m17!1m7!3m6!1s0x345d56c48f1c6f4b:0x6cfe39c8b7044cf9!2z5by15aq95aq95rWB5rWq5YuV54mp5LmL5a62!8m2!3d25.0100366!4d121.7531487!16s%2Fg%2F11c1qc1k9l!4m8!1m0!1m5!1m1!1s0x345d56c48f1c6f4b:0x6cfe39c8b7044cf9!2m2!1d121.7531487!2d25.0100366!3e3?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>B. 新北市中和公立動物之家</h3>
+                <p>新北市中和區興南路三段100號 · 0286-685-547</p>
+                <p class="status open">營業中，AM10:00-12:00 PM2:00-4:00(週一公休) </p>
+                <p>動物收容所 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.facebook.com/profile.php?id=100066526002210#">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//235%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E8%88%88%E5%8D%97%E8%B7%AF%E4%B8%89%E6%AE%B5100%E8%99%9F/@24.9755954,121.4063486,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x346802f5d2e281b7:0x3eca0042058caf54!2m2!1d121.4887501!2d24.9756181?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>C. 板橋動物之家</h3>
+                <p>新北市板橋區板城路28-1號 ·  0289-662-158</p>
+                <p class="status open">營業中，AM10:00-12:00 PM2:00-4:00(週一公休) </p>
+                <p>動物收容所 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.facebook.com/NTPCBanqiao/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//220%E6%96%B0%E5%8C%97%E5%B8%82%E6%9D%BF%E6%A9%8B%E5%8D%80%E6%9D%BF%E5%9F%8E%E8%B7%AF28-1%E8%99%9F/@24.9954384,121.3656018,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x346802b48b6a6141:0x6d4b927a2eb17556!2m2!1d121.4480033!2d24.9954611?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>D. 五股區公立動物之家</h3>
+                <p>新北市五股區外寮路9-9號 · 0282-925-265</p>
+                <p class="status open">營業中，AM10:00-12:00 PM2:00-4:00(週一公休) </p>
+                <p>動物收容所 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://happylepet.com/products/index.php">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//220%E6%96%B0%E5%8C%97%E5%B8%82%E6%9D%BF%E6%A9%8B%E5%8D%80%E5%85%89%E6%AD%A3%E8%A1%9739%E8%99%9F/@25.0171703,121.3796334,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3442a9d8fccb7c1d:0xa4bc9ea5c7a0719a!2m2!1d121.4620393!2d25.017234?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>E. 瑞芳動物之家</h3>
+                <p>新北市瑞芳區中坑路3號 · 0224-063-481</p>
+                <p class="status open">營業中，AM10:00-12:00 PM2:00-4:00(週末公休) </p>
+                <p>動物收容所 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.facebook.com/profile.php?id=100068802926356#">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//224%E6%96%B0%E5%8C%97%E5%B8%82%E7%91%9E%E8%8A%B3%E5%8D%80%E4%B8%AD%E5%9D%91%E8%B7%AF3%E8%99%9F/@25.0760396,121.7169473,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x140ddab2826bfff3:0x47431b6abcf6d437!2m2!1d121.7993488!2d25.0760623?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="city-block">
+        <h2>桃園市</h2>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>A. 浪愛一生</h3>
+                <p>桃園市大園區溪洲路 ·  0967-082-959</p>
+                <p class="status open">營業中，10:00-15:00 </p>
+                <p>動物收容所</p>
+            </div>
+            <div class="store-actions">
+                <a
+                    href="https://www.facebook.com/LonLoveLife">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//337%E6%A1%83%E5%9C%92%E5%B8%82%E5%A4%A7%E5%9C%92%E5%8D%80%E6%BA%AA%E6%B4%B2%E8%B7%AF/@25.048348,121.0969609,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3468214949ef43d5:0x1be83d6a1142f447!2m2!1d121.1793624!2d25.0483707?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>B. 桃園市動物保護教育園區</h3>
+                <p>桃園市新屋區藻礁路1668號 · 034-861-760</p>
+                <p class="status open">營業中，09:30-12:00 13:00-16:00(週一週三公休)</p>
+                <p>動物收容所</p>
+            </div>
+            <div class="store-actions">
+                <a href="https://taw.tycg.gov.tw/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//327%E6%A1%83%E5%9C%92%E5%B8%82%E6%96%B0%E5%B1%8B%E5%8D%80%E8%97%BB%E7%A4%81%E8%B7%AF1668%E8%99%9F/@25.0084726,120.9453716,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x34682edc31fc5a3b:0xc28f9a6341de1e6f!2m2!1d121.0277731!2d25.0084953?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>C. 桃園市南昌動物保護教育園區</h3>
+                <p>桃園市桃園區向善街120-1號 · 033-250-126</p>
+                <p class="status open">營業中，08:00-12:00 13:00-17:00(週末公休) </p>
+                <p>動物收容所 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://taw.tycg.gov.tw/X20_Nauchang.aspx">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//33072%E6%A1%83%E5%9C%92%E5%B8%82%E6%A1%83%E5%9C%92%E5%8D%80%E5%9C%8B%E9%9A%9B%E8%B7%AF%E4%BA%8C%E6%AE%B5186%E8%99%9F1%E6%A8%93/@24.9948944,121.2059059,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x34681f7370eec5d1:0x4d36bb65306658ae!2m2!1d121.2882594!2d24.9948802?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>D. 狗腳印幸福聯盟</h3>
+                <p>桃園市大溪區瑞仁路290巷436號 ·033-801-414</p>
+                <p class="status open">營業中，08:30-18:00 </p>
+                <p>動物收容所 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.facebook.com/TaiwanPawprintK9Rescue">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//335%E6%A1%83%E5%9C%92%E5%B8%82%E5%A4%A7%E6%BA%AA%E5%8D%80%E7%91%9E%E4%BB%81%E8%B7%AF290%E5%B7%B7436%E8%99%9F/@24.9101532,121.2097423,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x34681931df90482d:0x856fa0b56eaf5ab2!2m2!1d121.2921515!2d24.9101714?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="city-block">
+        <h2>台中市</h2>
+        
+        <div class="store">
+            <div class="store-info">
+                <h3>C. 臺中市動物之家后里園區</h3>
+                <p>台中市后里區堤防路370號·  0425-588-024</p>
+                <p class="status closed">營業中，13:30～15:30(週三週五週日公休)</p>
+                <p>動物收容所 </p>
+            </div>
+            <div class="store-actions adjust-actions">
+                <a href="https://www.animal.taichung.gov.tw/">網站</a>
+                <a
+                    href="https://www.google.com/maps/place/%E8%87%BA%E4%B8%AD%E5%B8%82%E5%8B%95%E7%89%A9%E4%B9%8B%E5%AE%B6%E5%90%8E%E9%87%8C%E5%9C%92%E5%8D%80/@24.2171872,120.5598433,12z/data=!4m6!3m5!1s0x3469118e69b9e5c9:0x212a7fe9b1f5b5e7!8m2!3d24.2863873!4d120.7095659!16s%2Fg%2F11pwxz4b7p?authuser=0&entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>A. 社團法人台灣米樂流浪動物中途協會</h3>
+                <p>臺中市南區南和路78號·  0422-793-257</p>
+                <p class="status closed">營業中，09:30～17:30</p>
+                <p>動物收容所 </p>
+            </div>
+            <div class="store-actions adjust-actions">
+                <a href="https://www.meetlovehome.org/">網站</a>
+                <a
+                    href="#">規劃路線</a>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>B. 簡媽媽狗園- 台中簡媽媽愛護動物協會</h3>
+                <p>台中市南屯區中台路396號 · 0423-600-176</p>
+                <p class="status closed">營業中，08:30～17:30</p>
+                <p>動物收容所 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://jianmom.goodsplan.net/">網站</a>
+                <a
+                    href="#">規劃路線</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="city-block">
+        <h2>台南市</h2>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>A. 徐春水流浪狗之家</h3>
+                <p>台南市安南區公學路三段160巷 · 0986-167-920</p>
+                <p class="status open">營業中，08:00-18:00 </p>
+                <p>動物收容所</p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.facebook.com/xcs.straydogs/?locale=zh_TW">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//709%E5%8F%B0%E5%8D%97%E5%B8%82%E5%AE%89%E5%8D%97%E5%8D%80%E5%85%AC%E5%AD%B8%E8%B7%AF%E4%B8%89%E6%AE%B5160%E5%B7%B7166%E8%99%9F/@23.0690233,120.1037112,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x346e778a9cdb58cf:0xf4e1bb087dafa235!2m2!1d120.1861128!2d23.0690447?hl=zh-TW&entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>B. 社團法人臺南市徐園長護生協會</h3>
+                <p> 台南市將軍區西甲里西湖112號 ·  0989-546-228</p>
+                <p class="status open">營業中，(週五到週日)12:00～17:00 </p>
+                <p>動物收容所 </p>
+            </div>
+            <div class="store-actions">
+                <a
+                    href="https://www.facebook.com/profile.php?id=61566944802414&mibextid=wwXIfr&rdid=nZvrYPef1gXT8cx9&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Bj2ckeFsY%2F%3Fmibextid%3DwwXIfr#">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//722%E5%8F%B0%E5%8D%97%E5%B8%82%E4%BD%B3%E9%87%8C%E5%8D%80%E9%80%B2%E5%AD%B8%E8%B7%AF16%E8%99%9F/@23.1642722,120.1013322,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x346e7f14b1ef7877:0xbbdd9d87c74f3231!2m2!1d120.1837338!2d23.1642936?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>C. 臺南市動物之家灣裡站 </h3>
+                <p>臺南市南區省躬里14鄰萬年路580巷92號 · 062-964-439</p>
+                <p class="status open">營業中，週二至週六9:00~12:00 13:30~16:30 (週一周日公休)</p>
+                <p>動物收容所 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://animal.moa.gov.tw/Frontend/PublicShelter/Detail/PS00000024">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//702%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E8%90%AC%E5%B9%B4%E8%B7%AF580%E5%B7%B792%E8%99%9F/@22.9366945,120.1118438,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x346e7507cfb2397d:0xfa112834d169f5f5!2m2!1d120.194287!2d22.9367284?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="city-block">
+        <h2>屏東縣</h2>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>A. 屏東縣動物之家</h3>
+                <p>屏東縣麟洛鄉信義路101號 · 087-221-090</p>
+                <p class="status open">營業中，週二至週日 13:30-17:00 </p>
+                <p>動物收容所</p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.facebook.com/adoptmeloveme/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//909%E5%B1%8F%E6%9D%B1%E7%B8%A3%E9%BA%9F%E6%B4%9B%E9%84%89%E4%BF%A1%E7%BE%A9%E8%B7%AF101%E8%99%9F/@22.6562211,120.4669439,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x346e3dffe5f5831d:0xf65ea1b40159db4d!2m2!1d120.5493455!2d22.6562422?hl=zh-TW&entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>B. 屏東高樹田媽媽浪浪之家</h3>
+                <p>屏東縣高樹鄉堤防路田子段493號 · 0982-227-497</p>
+                <p class="status open">營業中， 13:30-18:00 </p>
+                <p>動物收容所</p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.facebook.com/p/%E9%AB%98%E6%A8%B9%E7%94%B0%E5%AA%BD%E5%AA%BD%E6%B5%81%E6%B5%AA%E5%8B%95%E7%89%A9%E4%B9%8B%E5%AE%B6-100071416787364/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//906%E5%B1%8F%E6%9D%B1%E7%B8%A3%E9%AB%98%E6%A8%B9%E9%84%89/@22.7776296,120.4881203,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x346e3f22ef3bb91d:0x6a761921c7af1374!2m2!1d120.5705221!2d22.7776524?hl=zh-TW&entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+</body>
+
+</html>

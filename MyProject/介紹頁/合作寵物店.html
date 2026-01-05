@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>合作寵物店</title>
+    <link rel="icon" href="../圖片/icon2.png">
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            background: #FAF9F7;
+            color: #333;
+        }
+
+        header {
+            background: #FF7A21;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .city-block {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 10px 20px;
+        }
+
+        .city-block h2 {
+            color: #2c3b88;
+            font-size: 24px;
+            margin-bottom: 16px;
+            background: #f8b674;
+            border-radius: 12px;
+        }
+
+        .store {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 16px;
+            margin-bottom: 12px;
+            background: #efe5cf;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .store-info {
+            flex: 1;
+        }
+
+        .store-info h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .store-info p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .status.closed {
+            color: rgb(255, 162, 0);
+        }
+
+        /* .status.open {
+            color: rgb(14, 188, 14);
+        } */
+
+
+        .store-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-left: 16px;
+        }
+
+        .store-actions a {
+            text-decoration: none;
+            background: #deb65e;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 5px double rgb(243, 178, 67);
+            font-size: 14px;
+            color: #333;
+            transition: background 0.2s;
+            text-align: center;
+        }
+
+        .store-actions a:hover {
+            background: #FF7A21;
+            color: white;
+        }
+
+        .BEBE {
+            font-weight: bold;
+            color: rgba(165, 101, 42, 0.568);
+        }
+
+        .status-time {
+            color: #555;
+            margin-left: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>🐾各地合作的寵物店介紹🐾</header>
+    <div class="city-block">
+        <h2>台北市</h2>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>A. 超可愛名犬社</h3>
+                <p>台北市大安區基隆路二段134-1號 · 0958-096-659</p>
+                <p class="status closed">
+                    目前非營業時間 <span class="status-time">18:00–22:00 (週三店休)</span>
+                </p>
+                <p>合法寵物買賣店家／寵物寄養服務 / 幼犬培育買賣</p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.facebook.com/chaokea">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir/24.1565696,120.651776/25.0279752,121.5564327/@24.5825719,120.4266049,9z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>B. 沐新犬貓坊</h3>
+                <p>台北市大安區基隆路二段120號1樓 · 02-273-60351</p>
+                <p class="status open">營業中，13:00～01:00 </p>
+                <p>寵物店 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.muxinpet.com/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir/25.0717678,121.5051274/106%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E5%9F%BA%E9%9A%86%E8%B7%AF%E4%BA%8C%E6%AE%B5120%E8%99%9F1%E6%A8%93/@25.0290014,121.4745717,12z/data=!3m1!5s0x3442abcb2797d4c7:0xdc48a6bbd8629f77!4m8!4m7!1m0!1m5!1m1!1s0x3442abb84ccf19a3:0xd3518807844b07c4!2m2!1d121.5569732!2d25.0290241?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>C. 耀晟寵物坊</h3>
+                <p>台北市大安區基隆路二段130號 · 0972-393-433</p>
+                <p class="status open">營業中，15:00～23:45 </p>
+                <p>寵物店 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.facebook.com/sueypet/?locale=zh_TW">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//106%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E5%9F%BA%E9%9A%86%E8%B7%AF%E4%BA%8C%E6%AE%B5130%E8%99%9F/@25.0287465,121.4744221,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3442abcc99924e4b:0x5574722b42c31ca7!2m2!1d121.5568236!2d25.0287692?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="city-block">
+        <h2>新北市</h2>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>A. 有間寵物店</h3>
+                <p>新北市板橋區中山路一段206巷97號 · 0983-255-019</p>
+                <p class="status open">營業中，10:30-21:00 </p>
+                <p>寵物店</p>
+            </div>
+            <div class="store-actions">
+                <a href="https://yoyopets.tw/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//220%E6%96%B0%E5%8C%97%E5%B8%82%E6%9D%BF%E6%A9%8B%E5%8D%80%E4%B8%AD%E5%B1%B1%E8%B7%AF%E4%B8%80%E6%AE%B5206%E5%B7%B797%E8%99%9F/@25.0134858,121.3898399,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3442a9f41cec8b15:0x4215a40a6a0ba65c!2m2!1d121.4722414!2d25.0135085?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>B. 天晴寵物殿堂</h3>
+                <p>新北市新莊區中興街31號 · 0978-161-200</p>
+                <p class="status open">營業中，11:00-21:00 </p>
+                <p>品種培育/幼犬找家/寵物訓練/狗狗寄宿/代客尋寵 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.sunny-puppy.com/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//242%E6%96%B0%E5%8C%97%E5%B8%82%E6%96%B0%E8%8E%8A%E5%8D%80%E4%B8%AD%E8%88%88%E8%A1%9731%E8%99%9F/@25.0366453,121.3667545,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3442a948c5572e79:0x489920786b7c8994!2m2!1d121.449156!2d25.036668?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>C. 球球幼犬寵物店</h3>
+                <p>新北市中和區中正路641號1樓 · 0976-762-283</p>
+                <p class="status open">營業中，15:00～23:45 </p>
+                <p>寵物店 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.shibainu-store.com.tw/#left_page">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//235%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E4%B8%AD%E6%AD%A3%E8%B7%AF641%E8%99%9F1%E6%A8%93/@24.9957055,121.4026261,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3442a948fc79b5f9:0xdb723fb9dfc601e0!2m2!1d121.4850867!2d24.9957495?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>D. 樂寵貓狗屋</h3>
+                <p>新北市板橋區光正街39號 · 0979-632-161</p>
+                <p class="status open">營業中，12:00-21:00 </p>
+                <p>寵物店/幼犬買賣 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://happylepet.com/products/index.php">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//220%E6%96%B0%E5%8C%97%E5%B8%82%E6%9D%BF%E6%A9%8B%E5%8D%80%E5%85%89%E6%AD%A3%E8%A1%9739%E8%99%9F/@25.0171703,121.3796334,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3442a9d8fccb7c1d:0xa4bc9ea5c7a0719a!2m2!1d121.4620393!2d25.017234?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>E. 小酒窩幼犬寵物店</h3>
+                <p>新北市中和區新生街199號1樓 · 0913-172-095</p>
+                <p class="status open">營業中，11:30-21:30 </p>
+                <p>寵物店 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://dimple-puppy.com/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//%E5%B0%8F%E9%85%92%E7%AA%A9%E5%B9%BC%E7%8A%AC%E5%AF%B5%E7%89%A9%E5%BA%97+235%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E6%96%B0%E7%94%9F%E8%A1%97199%E8%99%9F+1%E6%A8%93/@25.0000503,121.4838775,10z/data=!4m8!4m7!1m0!1m5!1m1!1s0x346803a4213ee4eb:0x41b95f96ac4a13bd!2m2!1d121.4838775!2d25.0000503?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="city-block">
+        <h2>桃園市</h2>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>A. 中圓寵物家族-中正總店</h3>
+                <p>桃園市桃園區中正路836號 · 03-317-7608</p>
+                <p class="status open">營業中，09:00-23:00 </p>
+                <p>複合式寵物百貨／優良特定寵物 / 提供寵物買賣/寵物美容住宿/寵物領養/動物醫院</p>
+            </div>
+            <div class="store-actions">
+                <a
+                    href="https://www.petsfamily.com.tw/page/pets?lang=zh-TW&srsltid=AfmBOoqnxM0-6gccKF6RIwO5t0nsYvMlj19YD_-iXduMwd7OZcyCX8YD">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//330%E6%A1%83%E5%9C%92%E5%B8%82%E6%A1%83%E5%9C%92%E5%8D%80%E4%B8%AD%E6%AD%A3%E8%B7%AF836%E8%99%9F/@25.0100972,121.219256,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x34681fae8c2b50bd:0xc266a58d425ed92c!2m2!1d121.3016575!2d25.0101199?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>B. 九福寵物店</h3>
+                <p>桃園市桃園區民生路464號 · 03-338-6858</p>
+                <p class="status open">營業中，10:00-21:00 (週三週日公休)</p>
+                <p>寵物店 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.facebook.com/Peggylove0325/?locale=zh_TW">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=24.99917%2C121.31108&fbclid=IwY2xjawNdZdxleHRuA2FlbQIxMABicmlkETFqbnpOY2poR20yRmNROW9DAR6PtoksXit_KtrWvjwNiX3XL6W2I-R7YMwmb9gSCTke0wLoTeD-ofWV1IFprw_aem_Y0QII8ifLEOj2C_5_UBkJQ">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>C. 可愛幼犬寵物店</h3>
+                <p>桃園市桃園區國際路二段186號1樓 · 0938-312-765</p>
+                <p class="status open">營業中，10:00～21:00 </p>
+                <p>寵物店 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://mmpetstor.mystrikingly.com/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//33072%E6%A1%83%E5%9C%92%E5%B8%82%E6%A1%83%E5%9C%92%E5%8D%80%E5%9C%8B%E9%9A%9B%E8%B7%AF%E4%BA%8C%E6%AE%B5186%E8%99%9F1%E6%A8%93/@24.9948944,121.2059059,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x34681f7370eec5d1:0x4d36bb65306658ae!2m2!1d121.2882594!2d24.9948802?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="city-block">
+        <h2>台中市</h2>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>A. 樂芙幼犬寵物犬舍</h3>
+                <p>台中市西區臺灣大道二段520號 · 0928-332-033</p>
+                <p class="status open">營業中，13:00～21:00</p>
+                <p>寵物店 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://lovepuppy520.com.tw/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//403%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E8%87%BA%E7%81%A3%E5%A4%A7%E9%81%93%E4%BA%8C%E6%AE%B5520%E8%99%9F%E6%A8%82%E8%8A%99%E5%B9%BC%E7%8A%AC%E5%AF%B5%E7%89%A9%E7%8A%AC%E8%88%8D%E4%B8%A8%E6%8E%A8%E8%96%A6%E8%B2%B7%E7%8B%97%E8%B3%A3%E7%8B%97%E5%AF%B5%E7%89%A9%E5%BA%97%E4%B8%A8%E6%9F%B4%E7%8A%AC%E4%B8%A8%E8%B2%B4%E8%B3%93+%E4%B8%A8%E6%AF%94%E7%86%8A%E4%B8%A8%E7%91%AA%E7%88%BE%E4%B8%A8%E5%8D%9A%E7%BE%8E%E4%B8%A8%E7%8B%90%E7%8B%B8%E4%B8%A8%E6%9F%AF%E5%9F%BA%E4%B8%A8%E8%87%98%E8%85%B8%E4%B8%A8%E7%B4%84%E5%85%8B%E5%A4%8F%E4%B8%A8%E6%B3%95%E9%AC%A5%E4%B8%A8%E9%BB%83%E9%87%91%E7%8D%B5%E7%8A%AC%E4%B8%A8%E6%8B%89%E5%B8%83%E6%8B%89%E5%A4%9A%E4%B8%A8%E9%82%8A%E5%A2%83%E7%89%A7%E7%BE%8A%E7%8A%AC/@24.1583379,120.6545017,15z/data=!4m17!1m7!3m6!1s0x34693d7debfa1bad:0x9baf17c32d6b5332!2z5qiC6IqZ5bm854qs5a-154mp54qs6IiN5Lio5o6o6Jam6LK354uX6LOj54uX5a-154mp5bqX5Lio5p-054qs5Lio6LK06LOTIOS4qOavlOeGiuS4qOeRqueIvuS4qOWNmue-juS4qOeLkOeLuOS4qOafr-WfuuS4qOiHmOiFuOS4qOe0hOWFi-Wkj-S4qOazlemspeS4qOm7g-mHkeeNteeKrOS4qOaLieW4g-aLieWkmuS4qOmCiuWig-eJp-e-iueKrA!8m2!3d24.1569205!4d120.6605587!16s%2Fg%2F11wqd9yh8k!4m8!1m0!1m5!1m1!1s0x34693d7debfa1bad:0x9baf17c32d6b5332!2m2!1d120.6605587!2d24.1569205!3e3?authuser=0&entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>B. 貝貝寵物專業犬舍</h3>
+                <p CLASS="BEBE">【大墩門市】</p>
+                <p>台中市南屯區大墩11街283號· 0423-200-659</p>
+                <p class="status open">營業中，13:00～22:00</p>
+                <p CLASS="BEBE">【東興門市】</p>
+                <p>台中市南屯區東興路三段253號(附設美容部)· 0423-280-061</p>
+                <p class="status open">營業中，12:00～22:00</p>
+                <p>寵物店 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://bebedog.com.tw/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//408%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%B1%AF%E5%8D%80%E5%A4%A7%E5%A2%A9%E5%8D%81%E4%B8%80%E8%A1%97283%E8%99%9F/@24.1487429,120.5657622,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x34693d3b6eb23e17:0x4cf19badfe7cd82!2m2!1d120.6481625!2d24.1487336?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線(大墩店)</a>
+                <a
+                    href="https://www.google.com/maps/dir//408%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%B1%AF%E5%8D%80%E6%9D%B1%E8%88%88%E8%B7%AF%E4%B8%89%E6%AE%B5253%E8%99%9F/@24.1530796,120.5704688,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x34693db842ad3da7:0xec4445aec3415745!2m2!1d120.6528704!2d24.1531017?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線(東興店)</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="city-block">
+        <h2>台南市</h2>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>A. 優美犬舍</h3>
+                <p>台南市佳里區佳西路562巷28號 · 0973-723-656</p>
+                <p class="status open">營業中，10:00-22:00 </p>
+                <p>寵物店</p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.beautiful-kennel.com/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//722%E5%8F%B0%E5%8D%97%E5%B8%82%E4%BD%B3%E9%87%8C%E5%8D%80%E4%BD%B3%E8%A5%BF%E8%B7%AF562%E5%B7%B728%E8%99%9F/@23.1683712,120.0881215,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x346e7fa7fcfd7009:0x75bae825b535ab65!2m2!1d120.1705231!2d23.1683926?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>B. 白金寵物店</h3>
+                <p>台南市佳里區進學路16號 · 0970-546-568</p>
+                <p class="status open">營業中，12:00～23:00 </p>
+                <p>寵物店 </p>
+            </div>
+            <div class="store-actions">
+                <a
+                    href="https://www.facebook.com/profile.php?id=61566944802414&mibextid=wwXIfr&rdid=nZvrYPef1gXT8cx9&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Bj2ckeFsY%2F%3Fmibextid%3DwwXIfr#">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//722%E5%8F%B0%E5%8D%97%E5%B8%82%E4%BD%B3%E9%87%8C%E5%8D%80%E9%80%B2%E5%AD%B8%E8%B7%AF16%E8%99%9F/@23.1642722,120.1013322,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x346e7f14b1ef7877:0xbbdd9d87c74f3231!2m2!1d120.1837338!2d23.1642936?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+        <div class="store">
+            <div class="store-info">
+                <h3>C. 泰迪幼犬寵物店犬舍 </h3>
+                <p>台南市永康區自強路646號 · 0908-018-812</p>
+                <p class="status open">營業中，12:00～21:00 </p>
+                <p>寵物店 </p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.teddydogpet.com/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//710%E5%8F%B0%E5%8D%97%E5%B8%82%E6%B0%B8%E5%BA%B7%E5%8D%80%E8%87%AA%E5%BC%B7%E8%B7%AF646%E8%99%9F/@23.0347138,120.1781619,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x346e711ca5a80937:0x3bc83985821c7e77!2m2!1d120.2605608!2d23.0347382?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="city-block">
+        <h2>屏東縣</h2>
+
+        <div class="store">
+            <div class="store-info">
+                <h3>A. 日新犬舍</h3>
+                <p>屏東縣里港鄉里嶺路123號 · 0930-046-618</p>
+                <p class="status open">營業中，11:00-23:00 </p>
+                <p>寵物店</p>
+            </div>
+            <div class="store-actions">
+                <a href="https://www.ptpet.com/">網站</a>
+                <a
+                    href="https://www.google.com/maps/dir//905%E5%B1%8F%E6%9D%B1%E7%B8%A3%E9%87%8C%E6%B8%AF%E9%84%89%E9%87%8C%E5%B6%BA%E8%B7%AF123%E8%99%9F/@22.7692431,120.403957,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x346e15ca7295891b:0xacc82405ab2681af!2m2!1d120.4863586!2d22.7692642?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D">規劃路線</a>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+</body>
+
+</html>

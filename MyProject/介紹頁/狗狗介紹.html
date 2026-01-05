@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>狗狗檔案</title>
+  <link rel="icon" href="../圖片/icon2.png">
+  <style>
+    :root {
+      --brand: #ff6a13;
+      --ink: #0d3b4d;
+      --bg-hero: #f6efd6;
+    }
+
+    body {
+      margin: 0;
+      font: 16px/1.8 "Microsoft JhengHei", Arial, sans-serif;
+      color: #132a33;
+      background: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .hero-wrap {
+      background: var(--bg-hero);
+    }
+
+    .hero {
+      display: flex;
+      gap: 48px;
+      align-items: flex-end;
+      padding: 56px 0 24px;
+      position: relative;
+    }
+
+    /* 左側文字 */
+    .chip {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .1) inset;
+    }
+
+    .title {
+      margin: 0;
+      font-size: 64px;
+      line-height: 1.1;
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .title .hl {
+      color: var(--brand);
+      margin-right: .15em;
+    }
+
+    .meta {
+      margin: 10px 0 18px;
+      color: #184155;
+      font-weight: 700;
+      letter-spacing: .5px
+    }
+
+    .notice {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid var(--brand);
+      border-radius: 24px;
+      padding: 14px 18px;
+      width: min(720px, 100%);
+      background: #fff6ee;
+      color: #c54f0c;
+      font-weight: 700;
+    }
+
+    .notice::before {
+      content: "⚠️";
+    }
+
+    /* 右側圓形大圖 + 裝飾形狀 */
+    .figure {
+      position: relative;
+      width: 420px;
+      height: 420px;
+      flex: 0 0 auto;
+      isolation: isolate;
+      /* 讓裝飾層不影響其他元素 */
+    }
+
+    .figure img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .25);
+      display: block;
+    }
+
+    .seal {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: .9;
+    }
+
+
+    .figure::before,
+    .figure::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      transform: rotate(-12deg);
+    }
+
+    .figure::before {
+      right: -28px;
+      top: 24%;
+      width: 140px;
+      height: 120px;
+      background: #073245;
+      border-radius: 60px;
+    }
+
+    .figure::after {
+      right: -20px;
+      top: -12px;
+      width: 220px;
+      height: 160px;
+      background: var(--brand);
+      border-radius: 80px;
+      opacity: .9;
+    }
+
+
+    .section {
+      padding: 32px 0 80px;
+    }
+
+    .sec-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #0f3b53;
+      margin: 24px 0 10px;
+      font-weight: 900;
+      font-size: 32px;
+    }
+
+    .sec-title::before {
+      content: "🐶";
+      font-size: 28px;
+      filter: drop-shadow(0 2px 0 rgba(0, 0, 0, .06));
+    }
+
+    .under {
+      width: 60px;
+      height: 4px;
+      background: var(--brand);
+      border-radius: 2px;
+      margin: 8px 0 18px;
+    }
+
+    /* RWD */
+    @media (max-width: 1000px) {
+      .title {
+        font-size: 48px
+      }
+
+      .figure {
+        width: 340px;
+        height: 340px
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+
+      .figure {
+        align-self: center
+      }
+
+      .title {
+        font-size: 40px
+      }
+
+      .notice {
+        width: 100%
+      }
+    }
+
+    /* 兩欄版面：左文右圖 */
+    .two-col {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .col-left {
+      flex: 1 1 auto;
+    }
+
+    .aside {
+      flex: 0 0 520px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .aside-photo {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      /* 固定比例，避免版面跳動 */
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .18);
+      background: #f4f4f4;
+    }
+
+    /* RWD：小螢幕改為單欄 */
+    @media (max-width: 1000px) {
+      .two-col {
+        flex-direction: column;
+      }
+
+      .aside {
+        position: static;
+        width: 100%;
+      }
+    }
+
+    /* 三按鈕 */
+    .cta-wrap {
+      border: 2px solid var(--brand);
+      background: #fff6ee;
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      appearance: none;
+      border: 2px solid var(--brand);
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+      box-shadow: 0 6px 16px rgba(255, 106, 19, .20);
+    }
+
+    .btn:active {
+      transform: translateY(1px) scale(.99);
+    }
+
+    /* 風格 */
+    .btn.primary {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .btn.outline {
+      background: #fff;
+      color: var(--brand);
+    }
+
+    .btn.ghost {
+      background: #0d3b4d;
+      border-color: #0d3b4d;
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    /* 顯示/隱藏連結 */
+    .cta-links {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .cta-links a {
+      display: none;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 10px;
+    }
+
+    .cta-links a.show {
+      display: inline-block;
+    }
+
+    .cta-links a.form {
+      color: var(--brand);
+    }
+
+    .cta-links a.site {
+      color: #0d3b4d;
+    }
+
+    /* RWD */
+    @media (max-width: 760px) {
+      .btn {
+        flex: 1 1 180px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="hero-wrap">
+    <div class="container hero">
+      <div class="left">
+        <span class="chip">待領養</span>
+        <h1 class="title"><span class="hl">領養</span>choco</h1>
+        <div class="meta">弟弟・1歲・水瓶座・米黃・3kg・貴賓犬</div>
+      </div>
+
+      <figure class="figure">
+        <div class="seals"><span class="seal"></span><span class="seal"></span><span class="seal"></span></div>
+        <img src="../圖片/領養紅貴賓1.jpg" alt="choco">
+      </figure>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <h2 class="sec-title">背景故事</h2>
+      <div class="under"></div>
+      <p>
+        大家好~我叫choco，是一隻米黃色的紅貴賓女孩，今年剛滿 1 歲。出生在寵物院，從小就習慣被照顧與梳理，個性溫柔又親人。只要有人呼喚或拿著零食，我就會搖著小尾巴跑過來坐好等指令。
+      </p>
+    </div>
+    <!-- 用兩欄：左文字，右照片 -->
+    <div class="container two-col">
+      <!-- 左欄：原本的多段文字 -->
+      <div class="col-left">
+
+        <h2 class="sec-title">我的優點</h2>
+        <div class="under"></div>
+        <p>
+          ●聰明好學：坐下、等候很快就能上手，對零食回饋反應佳。<br>
+          ●親人不黏地板：願意互動，也能自己在床窩休息。<br>
+          ●體型小、好照顧：日常梳毛＋定期美容就能維持漂亮泰迪裝。<br>
+          ●室內生活友善：安靜、不亂叫（環境穩定下），適合公寓或小家庭。
+        </p>
+
+        <h2 class="sec-title">理想的家</h2>
+        <div class="under"></div>
+        <p>
+          ●願意固定美容（約 4–8 週）與日常梳毛，保持毛髮不打結。<br>
+          ●能提供每日散步與簡單智遊戲，讓我動腦、紓壓。<br>
+          ●認同正向訓練、不體罰，並能耐心教導生活規矩。<br>
+          ●出門有基本安全措施（胸背帶、雙重防護牽繩、外出包／推車）
+        </p>
+
+        <h2 class="sec-title">領養流程</h2>
+        <div class="under"></div>
+        <p>
+          1.私訊留下基本資料（居住城市、成員與作息、飼養經驗、租屋/是否同意養寵）。<br>
+          2.初步電話/訊息聊聊 → 安排見面互動。<br>
+          3.通過審核 → 簽署認養契約 → 領回／送養到府。<br>
+          4.試養 7–14 天（可調整），適應良好即正式過戶。
+        </p>
+
+        <h2 class="sec-title">備註與費用（依實際調整）</h2>
+        <div class="under"></div>
+        <p>
+          ●健檢／疫苗／結紮／晶片／驅蟲等費用實報實銷：＿＿＿＿<br>
+          ●隨行物品：日常飼料少量、牽繩、胸背帶、小毯子／熟悉玩具等。<br>
+          如果你在找一位貼心、好相處、願意學習的小夥伴，小米會是很棒的選擇。<br>
+          想認識我，請留言或私訊**＿＿＿＿**，附上你的簡介與聯絡方式，謝謝你願意給浪浪一個家。💛
+        </p>
+
+      </div>
+      <aside class="aside">
+        <img class="aside-photo" src="../圖片/choco.jpg" alt="choco side photo">
+      </aside>
+    </div>
+  </section>
+  <!-- 三按鈕 -->
+  <div class="cta-wrap" id="cta">
+    <button class="btn primary" onclick="openDM()">🐾 點我私訊</button>
+    <button class="btn outline" onclick="window.open('../form.html','_blank','noopener')">📝 馬上填表單</button>
+    <button class="btn ghost" onclick="window.open(SITE_URL,'_blank','noopener')">🔗 點我看詳細</button>
+  </div>
+  <!-- <div class="cta-links"> -->
+  <!-- <a id="formLink" class="form" href="../form.html" target="_blank" rel="noopener">→ 開啟表單</a> -->
+  <!-- <a id="siteLink" class="site" href="#" target="_blank" rel="noopener">→ 前往官網</a> -->
+  </div>
+  <script>
+    const DM_URL = 'https://m.me/你的粉專或其他私訊連結';
+    // const FORM_URL = '../form.html';
+    const SITE_URL = 'https://example.com/official-site';
+    function openDM() {
+      window.open(DM_URL, '_blank', 'noopener');
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>

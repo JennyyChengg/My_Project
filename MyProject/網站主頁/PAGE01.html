@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>search</title>
+    <link rel="icon" href="../圖片/icon2.png">
+    <style>
+        :root {
+            --primary: #e74c3c;
+            --dark: #111;
+            --card-w: 960px;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font: 16px/1.5 "Microsoft JhengHei", Arial, sans-serif;
+            color: #222;
+            background: url("../圖片/背景圖2.png") center/cover no-repeat fixed;
+        }
+
+        .tabs {
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .tabs {
+            max-width: var(--card-w);
+            margin: 0 auto;
+            padding: 16px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: #fff;
+        }
+
+        .tab {
+            border: 0;
+            background: transparent;
+            color: #bbb;
+            padding: 8px 14px;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background: var(--primary);
+            color: #fff;
+            border-radius: 4px;
+        }
+
+        /* 搜尋卡片 */
+        .card {
+            max-width: var(--card-w);
+            margin: 18px auto;
+            background: #fff;
+            padding: 28px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
+        }
+
+        h1 {
+            margin: 0 0 16px;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 14px 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .actions {
+            margin-top: 16px;
+        }
+
+        .btn {
+            border: 0;
+            background: #555;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            filter: brightness(1.1);
+        }
+
+        /* 手機 */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs,
+            .card {
+                margin-left: 12px;
+                margin-right: 12px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+
+        */ */ .tabs .tab {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 14px;
+            margin-right: 6px;
+            border-radius: 4px;
+            background: #444;
+        }
+
+        .tabs .tab:hover {
+            background: #e74c3c;
+        }
+
+        .panel {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 24px;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link {
+            background-color: transparent !important;
+            color: #333;
+            border: none;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            /* 滑鼠移過時淡淡高亮 */
+        }
+
+        .nav-link {
+            background-color: #f6e8c3;
+            color: #333;
+            border: none;
+        }
+
+        .nav-link:hover {
+            background-color: #f1dba7;
+            /* 滑過時稍微深一點的米色 */
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            background: transparent !important;
+            padding: 8px;
+        }
+
+        .tabs .tab {
+            background: #f6e8c3;
+            /* 淺米色 */
+            color: #333;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 4px;
+        }
+
+        .tabs .tab:hover {
+            background: #f1dba7;
+            /* 滑過時稍深的米色 */
+        }
+
+        .tabs .tab.active {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            background: transparent;
+            padding: 10px 0;
+        }
+
+        .tabs .tab {
+            background: #f9e9b7;
+            color: #333;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            /* 圓角 */
+            padding: 10px 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            /* 柔和陰影 */
+            transition: all 0.25s ease;
+            /* 動畫 */
+            text-decoration: none;
+        }
+
+        .tabs .tab:hover {
+            background: #f7d97c;
+            /* 滑過時變亮一點 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+            /* 滑過時輕微上浮 */
+        }
+
+        .tabs .tab.active {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 3px 10px rgba(231, 76, 60, 0.4);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tabs">
+        <a class="tab" href="../介紹頁/狗狗品種介紹.html" target="_blank">🐶 狗狗品種介紹</a>
+        <a class="tab" href="../介紹頁/合作寵物店.html" target="_blank">🏪 各區合作的寵物店介紹</a>
+        <a class="tab" href="../介紹頁/合作浪浪之家.html" target="_blank">🐾 各區合作的流浪狗之家介紹</a>
+        <a class="tab" href="../介紹頁/首頁.html " target="_blank">🏠 直接連到首頁</a>
+    </div>
+
+    <div class="panel">
+        <h1>輸入想要養的狗狗品種 / 特定地區</h1>
+        <form>
+            <div>
+                <!-- 狗狗品種 -->
+                <div>
+                    <label for="breed">狗狗品種</label>
+                    <input id="breed" name="breed" type="text" placeholder="狗狗品種" list="breed-list" autocomplete="off">
+                    <datalist id="breed-list">
+                        <option value="Chihuahua（吉娃娃）"></option>
+                        <option value="Pomeranian（博美犬）"></option>
+                        <option value=" Bichon Frise（比熊犬）"></option>
+                        <option value="Toy Poodle（貴賓犬）"></option>
+                        <option value="Shiba Inu（柴犬）"></option>
+                        <option value="Maltese（馬爾濟斯）"></option>
+                        <option value="Labrador Retriever（拉不拉多）"></option>
+                        <option value="Pembroke Welsh Corgi（柯基）"></option>
+                        <option value="French Bulldog（法鬥）"></option>
+                        <option value="Golden Retriever（黃金獵犬）"></option>
+                        <option value="husky（哈士奇）"></option>
+                        <option value="Maltese（馬爾濟斯）"></option>
+
+
+
+
+
+                    </datalist>
+                </div>
+
+                <!-- 地區 -->
+                <div>
+                    <label for="region">地區</label>
+                    <input id="region" name="region" type="text" placeholder="地區" list="region-list" autocomplete="off">
+                    <datalist id="region-list">
+                        <option value="台北市"></option>
+                        <option value="新北市"></option>
+                        <option value="桃園市"></option>
+                        <option value="台中市"></option>
+                        <option value="台南市"></option>
+                        <option value="高雄市"></option>
+                        <option value="宜蘭縣"></option>
+                        <option value="花蓮縣"></option>
+                    </datalist>
+                </div>
+                <button type="submit">點我搜尋</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const tabsSwitch = document.querySelectorAll('.tab[data-target]');
+        const panels = document.querySelectorAll('.panel');
+
+        function openPanel(id) {
+            panels.forEach(p => p.hidden = (p.id !== id));
+            tabsSwitch.forEach(t => t.classList.toggle('active', t.dataset.target === id));
+        }
+
+        tabsSwitch.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();              // 只會阻擋「頁內切換」tab
+                openPanel(tab.dataset.target);   // 切換顯示的面板
+            });
+        });
+
+        // 可選：初始顯示第一個面板
+        if (tabsSwitch.length) openPanel(tabsSwitch[0].dataset.target);
+
+        document.querySelector("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const breed = document.getElementById("breed").value;
+            const region = document.getElementById("region").value;
+
+            if (breed.includes("Toy Poodle") && region.includes("台北市")) {
+                window.location.href = ("../相簿頁/台北紅貴賓.html");
+            } else if (breed.includes("Toy Poodle") && region.includes("新北市")) {
+                window.location.href = "介紹頁/redpoodle_newtaipei.html";
+            } else if (breed.includes("Toy Poodle") && region.includes("桃園市")) {
+                window.location.href = ("../相簿頁/桃園紅貴賓.html");
+            }
+        });
+    </script>
+</body>
+
+</html>

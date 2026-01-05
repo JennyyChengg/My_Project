@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dog Cards</title>
+    <link rel="icon" href="../圖片/icon2.png">
+    <style>
+        :root {
+            --brand: #ff5a4f;
+            --ink: #0c3a5b;
+        }
+
+        body {
+            margin: 0;
+            background: url("../圖片/背景圖.png") center/cover no-repeat fixed;
+            font: 16px/1.6 "Microsoft JhengHei", Arial, sans-serif;
+            color: #233;
+        }
+
+        .grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        @media (max-width:1000px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media (max-width:600px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* 卡片 */
+        .card {
+            background: #fff;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+        }
+
+        .thumb {
+            position: relative;
+            aspect-ratio: 4/3;
+            background: #ddd center/cover no-repeat;
+            border-bottom-left-radius: 28px;
+            border-bottom-right-radius: 28px;
+        }
+
+        /* 圖下緣圓角凹槽感 */
+        .thumb::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -24px;
+            height: 24px;
+            background: #fff;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+
+        /* 圖上徽章（可放多顆） */
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, .65);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 13px
+        }
+
+        .seals {
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            display: flex;
+            gap: 8px
+        }
+
+        .seal {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #fff url('seal.png') center/80% no-repeat;
+            opacity: .9
+        }
+
+        /* 奶油色標籤 */
+        .tag {
+            position: absolute;
+            left: 50%;
+            bottom: -14px;
+            transform: translateX(-50%);
+            background: #ffe9cf;
+            color: #c66b00;
+            border-radius: 10px;
+            padding: 6px 14px;
+            font-weight: 700;
+            box-shadow: 0 2px 0 rgba(0, 0, 0, .06);
+        }
+
+        .body {
+            padding: 22px
+        }
+
+        .name {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0c3a5b;
+            text-align: center;
+            margin: 26px 0 8px
+        }
+
+        .divider {
+            width: 42px;
+            height: 4px;
+            background: var(--brand);
+            border-radius: 2px;
+            margin: 0 auto 14px
+        }
+
+        .meta {
+            color: #2a3e55;
+            text-align: center
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 14px auto 8px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: var(--brand);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 6px 0 rgba(0, 0, 0, .1) inset;
+            /* 粗略模擬筆刷厚度 */
+        }
+
+        .actions {
+            text-align: center
+        }
+
+        .clinic {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #ff5a4f;
+            /* 亮紅色底 */
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+        }
+
+        /* 你可以依你的版寬改這兩個變數 */
+        .dog-gallery {
+            --card-w: 340px;
+            /* 你的卡片寬（與原本一致） */
+            --gap: 28px;
+            /* 卡片間距（與原本一致） */
+            position: relative;
+            /* margin-bottom: 20px; */
+            /* 👈 加這個就能讓每個區塊之間留空 */
+            max-width: 1200px;
+            /* 和你外層容器一致 */
+            margin: 0 auto;
+        }
+
+        /* ===== 靜態模式（3 張或更少，完全還原你的三欄排版） ===== */
+        .dog-gallery.gallery-static .grid {
+            display: grid;
+            grid-template-columns: repeat(3, var(--card-w));
+            gap: var(--gap);
+            justify-content: center;
+            /* 置中，保持你現在的視覺 */
+            overflow: visible;
+        }
+
+        /* ===== 滑動模式（超過 3 張才會套用） ===== */
+        .dog-gallery.gallery-scroll .grid {
+            display: flex;
+            gap: var(--gap);
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            padding: 0 24px;
+            /* 邊緣留空讓箭頭不壓到卡片 */
+        }
+
+        .dog-gallery.gallery-scroll .grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dog-gallery.gallery-scroll .card {
+            flex: 0 0 var(--card-w);
+        }
+
+        /* 箭頭：只有在滑動模式才顯示 */
+        .dog-gallery .arrow-btn {
+            display: none;
+            /* 預設隱藏 */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 245, 245, .95);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
+            color: #444;
+            font-size: 26px;
+            cursor: pointer;
+            z-index: 2;
+            transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+        }
+
+        .dog-gallery.gallery-scroll .arrow-btn {
+            display: flex;
+        }
+
+        .dog-gallery .arrow-btn--left {
+            left: 8px;
+        }
+
+        .dog-gallery .arrow-btn--right {
+            right: 8px;
+        }
+
+        .dog-gallery .arrow-btn:hover {
+            background: #fff1f1;
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        /* 額外保護：超窄螢幕讓按鈕小一點 */
+        @media (max-width: 640px) {
+            .dog-gallery .arrow-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 22px;
+            }
+        }
+
+        .dog-gallery .clinic-pin {
+            position: absolute;
+            /* z-index: 10; */
+            /* 或更高，例如 100 */
+            left: -150px;
+            /* 視覺上靠在卡片區塊左邊，可調 */
+            top: 10%;
+            /* 垂直置中 */
+            transform: translateY(-50%);
+            z-index: 100;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 12px;
+            background: #fff8f6;
+            color: #444;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, .15);
+            transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+        }
+
+        .dog-gallery .clinic-pin:hover {
+            background: #ffe9e5;
+            transform: translateY(-50%) scale(1.03);
+        }
+
+        /* 小螢幕略縮小 & 往內收一點 */
+        @media (max-width: 600px) {
+            .dog-gallery .clinic-pin {
+                left: 6px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+
+        /* 左上角「超可愛名犬舍」按鈕 */
+        .clinic-btn {
+            position: fixed;
+            /* 固定在畫面左上角 */
+            top: 24px;
+            left: 24px;
+            background: #fff8f6;
+            /* 淺粉奶油底 */
+            color: #444;
+            font-weight: 700;
+            font-size: 15px;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 18px 10px 36px;
+            /* 左側留空放圖示 */
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+            z-index: 1000;
+        }
+
+        /* 固定在左上角的那顆 */
+        .clinic-btn--top {
+            top: 24px;
+            left: 24px;
+            transform: none;
+            /* 覆寫，避免被其它變體影響 */
+        }
+
+        /* 固定在畫面左側垂直置中的那顆（就是你要的效果） */
+        .clinic-btn--middle {
+            top: 50%;
+            left: 24px;
+            transform: translateY(-50%);
+        }
+
+        @media (max-width: 600px) {
+            .clinic-btn--middle {
+                left: 16px;
+            }
+        }
+
+        /* 圖示部分（你 img 那顆） */
+        .clinic-btn img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
+
+        /* 滑過特效 */
+        .clinic-btn:hover {
+            background: #ffe9e5;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 小螢幕自動縮小 */
+        @media (max-width: 600px) {
+            .clinic-btn {
+                top: 16px;
+                left: 16px;
+                font-size: 14px;
+                padding: 8px 14px 8px 32px;
+            }
+
+            .clinic-btn img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+
+
+        /* 圖示（用 emoji 的情況）*/
+        .clinic-btn .clinic-icon {
+            width: 22px;
+            height: 22px;
+            display: inline-grid;
+            place-items: center;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+            font-size: 14px;
+        }
+
+        /* 圖示（如果改用 <img>）*/
+        .clinic-btn img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        /* 小螢幕自動縮小一點 */
+        @media (max-width: 600px) {
+            .clinic-btn {
+                top: 16px;
+                left: 16px;
+                font-size: 14px;
+                padding: 8px 14px;
+            }
+
+            .clinic-btn .clinic-icon,
+            .clinic-btn img {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="clinic-block">
+
+        <div class="dog-gallery">
+            <!-- 這顆會固定在這個 dog-gallery 的左側中間 -->
+            <a href="https://www.facebook.com/chaokea" class="clinic-pin">
+                <span class="clinic-icon">🏠</span> 超可愛名犬社
+            </a>
+            <button class="arrow-btn arrow-btn--left" aria-label="上一排">‹</button>
+            <!-- 這個 .grid 就是你原本那個 .grid，不改它的內容 -->
+            <div class="grid">
+                <!-- 你的卡片：保持原來的標記和樣式 -->
+                <article class="card">
+                    <div class="thumb" style="background-image:url('../圖片/領養紅貴賓1.jpg')">
+                        <div class="seals">
+                            <span class="seal"></span><span class="seal"></span><span class="seal"></span>
+                        </div>
+                        <span class="tag">待領養</span>
+                    </div>
+                    <div class="body">
+                        <div class="name">choco</div>
+                        <div class="divider"></div>
+                        <div class="meta">妹妹・1歲・米黃・3kg</div>
+                        <div class="actions"><a class="btn" href="../介紹頁/狗狗介紹.html" target="_blank">狗狗檔案</a></div>
+                    </div>
+                </article>
+
+                <!-- 卡片 2 -->
+                <article class="card">
+                    <div class="thumb" style="background-image:url('images/xiaohui.jpg')">
+                        <div class="seals"><span class="seal"></span><span class="seal"></span><span
+                                class="seal"></span>
+                        </div>
+                        <span class="tag">三芝李榮浩</span>
+                    </div>
+                    <div class="body">
+                        <div class="name">小輝</div>
+                        <div class="divider"></div>
+                        <div class="meta">弟弟・4歲・黃色・22kg</div>
+                        <div class="actions"><a class="btn" href="#" target="_blank">狗狗檔案</a></div>
+                    </div>
+                </article>
+
+                <!-- 卡片 3 -->
+                <article class="card">
+                    <div class="thumb" style="background-image:url('images/jinbao.jpg')">
+                        <div class="seals"><span class="seal"></span><span class="seal"></span><span
+                                class="seal"></span>
+                        </div>
+                        <span class="tag">吉祥小虎爺</span>
+                    </div>
+                    <div class="body">
+                        <div class="name">金寶</div>
+                        <div class="divider"></div>
+                        <div class="meta">弟弟・5歲・白底紅棕虎斑・22kg</div>
+                        <div class="actions"><a class="btn" href="#" target="_blank">狗狗檔案</a></div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="thumb" style="background-image:url('images/jinbao.jpg')">
+                        <div class="seals"><span class="seal"></span><span class="seal"></span><span
+                                class="seal"></span>
+                        </div>
+                        <span class="tag">吉祥小虎爺</span>
+                    </div>
+                    <div class="body">
+                        <div class="name">金寶</div>
+                        <div class="divider"></div>
+                        <div class="meta">弟弟・5歲・白底紅棕虎斑・22kg</div>
+                        <div class="actions"><a class="btn" href="#" target="_blank">狗狗檔案</a></div>
+                    </div>
+                </article>
+            </div>
+            <button class="arrow-btn arrow-btn--right" aria-label="下一排">›</button>
+        </div>
+
+        <br>
+
+
+        <div class="dog-gallery">
+            <a href="https://www.muxinpet.com/" class="clinic-pin">
+                <span class="clinic-icon">🏠</span> 沐新犬貓坊
+            </a>
+            <button class="arrow-btn arrow-btn--left" aria-label="上一排">‹</button>
+            <!-- 這個 .grid 就是你原本那個 .grid，不改它的內容 -->
+            <div class="grid">
+                <!-- 你的卡片：保持原來的標記和樣式 -->
+                <article class="card">
+                    <div class="thumb" style="background-image:url('images/xiaohui.jpg')">
+                        <!-- <span class="badge">麵茶</span> -->
+                        <div class="seals">
+                            <span class="seal"></span><span class="seal"></span><span class="seal"></span>
+                        </div>
+                        <span class="tag">彩虹小馬</span>
+                    </div>
+                    <div class="body">
+                        <div class="name">麵茶</div>
+                        <div class="divider"></div>
+                        <div class="meta">妹妹・4歲・黑黃・13kg</div>
+                        <div class="actions"><a class="btn" href="#" target="_blank">狗狗檔案</a></div>
+                    </div>
+                </article>
+
+                <!-- 卡片 2 -->
+                <article class="card">
+                    <div class="thumb" style="background-image:url('images/xiaohui.jpg')">
+                        <div class="seals"><span class="seal"></span><span class="seal"></span><span
+                                class="seal"></span>
+                        </div>
+                        <span class="tag">三芝李榮浩</span>
+                    </div>
+                    <div class="body">
+                        <div class="name">小輝</div>
+                        <div class="divider"></div>
+                        <div class="meta">弟弟・4歲・黃色・22kg</div>
+                        <div class="actions"><a class="btn" href="#" target="_blank">狗狗檔案</a></div>
+                    </div>
+                </article>
+
+                <!-- 卡片 3 -->
+                <article class="card">
+                    <div class="thumb" style="background-image:url('images/jinbao.jpg')">
+                        <div class="seals"><span class="seal"></span><span class="seal"></span><span
+                                class="seal"></span>
+                        </div>
+                        <span class="tag">吉祥小虎爺</span>
+                    </div>
+                    <div class="body">
+                        <div class="name">金寶</div>
+                        <div class="divider"></div>
+                        <div class="meta">弟弟・5歲・白底紅棕虎斑・22kg</div>
+                        <div class="actions"><a class="btn" href="#" target="_blank">狗狗檔案</a></div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="thumb" style="background-image:url('images/jinbao.jpg')">
+                        <div class="seals"><span class="seal"></span><span class="seal"></span><span
+                                class="seal"></span>
+                        </div>
+                        <span class="tag">吉祥小虎爺</span>
+                    </div>
+                    <div class="body">
+                        <div class="name">金寶</div>
+                        <div class="divider"></div>
+                        <div class="meta">弟弟・5歲・白底紅棕虎斑・22kg</div>
+                        <div class="actions"><a class="btn" href="#" target="_blank">狗狗檔案</a></div>
+                    </div>
+                </article>
+            </div>
+            <button class="arrow-btn arrow-btn--right" aria-label="下一排">›</button>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.dog-gallery').forEach(gallery => {
+            const track = gallery.querySelector('.grid');
+            const btnL = gallery.querySelector('.arrow-btn--left');
+            const btnR = gallery.querySelector('.arrow-btn--right');
+            if (!track || !btnL || !btnR) return;
+
+            const CARD_W = parseInt(getComputedStyle(gallery).getPropertyValue('--card-w'));
+            const GAP = parseInt(getComputedStyle(gallery).getPropertyValue('--gap'));
+
+            // 依卡片數量與容器寬度，決定用靜態(三欄)或滑動模式
+            const applyMode = () => {
+                const cards = track.querySelectorAll('.card');
+                const count = cards.length;
+
+                // 三張或更少 → 靜態模式
+                if (count <= 3) {
+                    gallery.classList.add('gallery-static');
+                    gallery.classList.remove('gallery-scroll');
+                } else {
+                    gallery.classList.remove('gallery-static');
+                    gallery.classList.add('gallery-scroll');
+                }
+
+                updateArrows();
+            };
+
+            // 更新箭頭啟用/停用狀態
+            const updateArrows = () => {
+                if (!gallery.classList.contains('gallery-scroll')) {
+                    btnL.style.display = btnR.style.display = 'none';
+                    return;
+                }
+                btnL.style.display = btnR.style.display = 'flex';
+
+                btnL.disabled = track.scrollLeft <= 0;
+                btnR.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+            };
+
+            const step = () => Math.max(1, Math.round(track.clientWidth * 0.9));
+
+            btnR.addEventListener('click', () => {
+                track.scrollBy({ left: step(), behavior: 'smooth' });
+            });
+            btnL.addEventListener('click', () => {
+                track.scrollBy({ left: -step(), behavior: 'smooth' });
+            });
+
+            track.addEventListener('scroll', updateArrows, { passive: true });
+            window.addEventListener('resize', () => { applyMode(); });
+
+            applyMode();
+        });
+
+    </script>
+</body>
+
+</html>

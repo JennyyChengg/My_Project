@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>狗老大官網</title>
+     <link rel="icon" href="../圖片/icon2.png">
+
+    <!-- 字型 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --brand: #f57c00;
+
+            --brand-2: #ffa000;
+            --ink: #1f2a37;
+          
+            --muted: #6b7280;
+          
+            --bg: #fffaf4;
+          
+            --line: #eee;
+         
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+        }
+
+        body {
+            font: 16px/1.7 "Noto Sans TC", "Microsoft JhengHei", system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Arial, sans-serif;
+            color: var(--ink);
+            background: var(--bg);
+        }
+
+        .topbar {
+            background: #fff;
+            border-bottom: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 16px;
+        }
+
+        .topbar .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 44px;
+        }
+
+        .topbar a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-right: 14px;
+        }
+
+        .topbar a:hover {
+            color: var(--brand);
+        }
+
+        .header {
+            background: #fff;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .header .row {
+            display: grid;
+            grid-template-columns: 220px 1fr auto;
+            gap: 16px;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            gap: 10px;
+            font-weight: 900;
+            font-size: 22px;
+            color: var(--brand);
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo svg {
+            width: 34px;
+            height: 34px;
+        }
+
+        .searchbar {
+            display: flex;
+            gap: 8px;
+        }
+
+        .searchbar input {
+            flex: 1;
+            height: 42px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 0 14px;
+        }
+
+        .searchbar button {
+            height: 42px;
+            padding: 0 16px;
+            border: 0;
+            border-radius: 999px;
+            color: #fff;
+            background: var(--brand);
+            cursor: pointer;
+        }
+
+        .tools {
+            display: flex;
+            gap: 10px;
+        }
+
+        .select,
+        .font-size {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 4px 10px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .font-size button {
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            border: 0;
+            background: #f3f4f6;
+            cursor: pointer;
+        }
+
+        .font-size button.active {
+            background: var(--brand);
+            color: #fff;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            background: linear-gradient(90deg, var(--brand), var(--brand-2));
+        }
+
+        .nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            display: block;
+            padding: 12px 14px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, .18);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .hero__track {
+            display: flex;
+            transition: transform .6s cubic-bezier(.22, .61, .36, 1);
+            will-change: transform;
+        }
+
+        .hero__slide {
+            min-width: 100%;
+            aspect-ratio: 21 / 9;
+            position: relative;
+            display: grid;
+            place-items: center;
+            --bg: none;
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, .45), rgba(0, 0, 0, .15) 40%, rgba(0, 0, 0, 0)) top/100% 60% no-repeat,
+                var(--bg) center/cover no-repeat;
+            border-radius: 0;
+        }
+
+        .hero__panel {
+            width: min(92%, 1200px);
+            height: 100%;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .hero__title {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            color: #fff;
+            text-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+        }
+
+        .hero__title h2 {
+            margin: 0;
+            font-size: clamp(28px, 4.2vw, 56px);
+            font-weight: 900;
+            letter-spacing: .03em;
+        }
+
+        .hero__title p {
+            margin: 8px 0 0;
+            font-size: clamp(16px, 2.2vw, 24px);
+            font-weight: 700;
+            background: rgba(255, 255, 255, .18);
+            padding: 6px 12px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .hero__cta {
+            margin-top: 14px;
+            display: inline-block;
+            background: #fff;
+            color: #111;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 10px;
+        }
+
+        .hero__ctrl {
+            position: absolute;
+            inset: auto 0 12px 0;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid rgba(0, 0, 0, .2);
+            cursor: pointer;
+        }
+
+        .dot[aria-current="true"] {
+            background: var(--brand);
+            border-color: var(--brand);
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .92);
+            color: var(--brand);
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .arrow--l {
+            left: 10px;
+        }
+
+        .arrow--r {
+            right: 10px;
+        }
+
+        .pp {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border: 0;
+            border-radius: 999px;
+            background: #fff;
+            padding: 6px 10px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+        .quick {
+            background: #fff;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .quick .grid {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        @media (max-width:900px) {
+            .quick .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width:560px) {
+            .quick .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .q-item {
+            text-decoration: none;
+            color: var(--ink);
+            display: grid;
+            justify-items: center;
+            gap: 10px;
+        }
+
+        .q-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            color: #fff;
+            font-size: 34px;
+            box-shadow: var(--shadow);
+        }
+
+        .q-item:hover .q-icon {
+            filter: brightness(.95);
+        }
+
+        .q-item span {
+            font-weight: 700;
+        }
+        .main {
+            padding: 30px 0;
+        }
+
+        .cards {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: 2fr 2fr 1.6fr;
+        }
+
+        @media (max-width:960px) {
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width:640px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 18px;
+        }
+
+        .card h3 {
+            margin: 0 0 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+        }
+
+        .card h3::before {
+            content: "";
+            width: 8px;
+            height: 20px;
+            background: var(--brand);
+            border-radius: 8px;
+        }
+
+        .list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--line);
+            display: flex;
+            gap: 10px;
+        }
+
+        .list li:last-child {
+            border-bottom: 0;
+        }
+
+        .list time {
+            color: #9ca3af;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .list a {
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .list a:hover {
+            color: var(--brand);
+        }
+
+        .promo {
+            border: 2px dashed #ffd6a8;
+            background: #fff9f0;
+            display: grid;
+            place-items: center;
+            color: #b45309;
+            min-height: 260px;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+        .footer {
+            background: #1f2937;
+            color: #cbd5e1;
+            margin-top: 30px;
+        }
+
+        .footer .cols {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: 2fr 1.2fr 1.2fr;
+            padding: 28px 0;
+        }
+
+        .footer a {
+            color: #e5e7eb;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #fff;
+        }
+
+        .copy {
+            border-top: 1px solid rgba(255, 255, 255, .1);
+            text-align: center;
+            padding: 14px 0;
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        /* 無障礙小工具 */
+        .sr-only {
+            position: absolute;
+            left: -9999px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <a class="logo" href="#">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12L12 3l9 9v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-8z" />
+                    </svg>
+                    狗老大
+                </a>
+                <form class="searchbar" role="search" action="#">
+                    <label for="q" class="sr-only">站內搜尋</label>
+                    <input id="q" name="q" placeholder="請輸入關鍵字…" />
+                    <button type="submit">進階搜尋</button>
+                </form>
+              
+                    <div class="select">合作的寵物店和收容所 ▾</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="#">熱門公告</a></li>
+                <li><a href="#">關於狗老大</a></li>
+                <li><a href="#">合作資訊</a></li>
+                <li><a href="#">認識我們</a></li>
+                <li><a href="#">熱賣商品</a></li>
+                <li><a href="#">其他活動</a></li>
+                <li><a href="#">網站連結</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="hero" aria-label="網站主視覺廣告">
+        <button class="arrow arrow--l" aria-label="上一張" id="prevBtn">‹</button>
+        <button class="arrow arrow--r" aria-label="下一張" id="nextBtn">›</button>
+        <button class="pp" aria-pressed="false" id="ppBtn">⏸ 暫停</button>
+
+        <div class="hero__track" id="heroTrack">
+            <a class="hero__slide"
+                style="--bg:url('https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1920&auto=format&fit=crop')"
+                data-title="屏東動物之家 • 招募志工" data-subtitle="一起陪伴浪浪、協助照護與社區推廣" data-link="#志工報名">
+                <div class="hero__panel">
+                    <div class="hero__title">
+                        <h2></h2>
+                        <p></p>
+                        <span class="hero__cta">立刻報名</span>
+                    </div>
+                </div>
+            </a>
+            <a class="hero__slide"
+                style="--bg:url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1920&auto=format&fit=crop')"
+                data-title="貝貝寵物專業犬舍 • 寵物新星" data-subtitle="超萌柯基報到！現場互動、預約領養/購買" data-link="#貝貝寵物">
+                <div class="hero__panel">
+                    <div class="hero__title">
+                        <h2></h2>
+                        <p></p>
+                        <span class="hero__cta">看更多柯基</span>
+                    </div>
+                </div>
+            </a>
+            <a class="hero__slide" style=--bg:url(https://www.rocktail.com.tw/wp-content/uploads/2024/08/48_%E6%B5%AA%E6%B5%AA%E5%88%A5%E5%93%AD%EF%BC%BF%E6%B5%81%E6%B5%AA%E7%8A%AC%E6%85%88%E5%96%84%E7%BE%A9%E8%B3%A3%EF%BC%9A2021-%E8%B2%B7%E7%B4%85%E5%8C%85%E8%A2%8B%E9%80%99%E8%A3%A1%E7%9C%8B.png) data-title="浪愛一生 • 桃園義賣" data-subtitle="義賣所得全數支援救援照護，週末一起來！"
+                data-link="#義賣活動">
+                <div class="hero__panel">
+                    <div class="hero__title">
+                        <h2></h2>
+                        <p></p>
+                        <span class="hero__cta">活動資訊</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="hero__ctrl" id="heroDots"></div>
+    </section>
+    <section class="quick">
+        <div class="container">
+            <div class="grid">
+                <a class="q-item" href="#">
+                    <div class="q-icon">🐶</div><span>認養活動</span>
+                </a>
+                <a class="q-item" href="#">
+                    <div class="q-icon">💊</div><span>醫療與照護</span>
+                </a>
+                <a class="q-item" href="#">
+                    <div class="q-icon">💬</div><span>線上諮詢</span>
+                </a>
+                <a class="q-item" href="#">
+                    <div class="q-icon">🐾</div><span>浪浪回報</span>
+                </a>
+                <a class="q-item" href="#">
+                    <div class="q-icon">🤝</div><span>志工招募</span>
+                </a>
+                <a class="q-item" href="#">
+                    <div class="q-icon">🏡</div><span>友善地點</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <main class="main">
+        <div class="container">
+            <div class="cards">
+                <section class="card">
+                    <h3>熱門公告</h3>
+                    <ul class="list">
+                        <li><time>2025-10-15</time><a href="#">屏東動物之家 開放志工報名第二梯次</a></li>
+                        <li><time>2025-10-12</time><a href="#">認養優惠：晶片登錄與結紮補助延長至年底</a></li>
+                        <li><time>2025-10-10</time><a href="#">狂犬病疫苗巡迴接種站時程公告</a></li>
+                        <li><time>2025-10-08</time><a href="#">浪浪中途之家合作計畫 受理申請中</a></li>
+                    </ul>
+                </section>
+
+                <section class="card">
+                    <h3>最新消息</h3>
+                    <ul class="list">
+                        <li><time>2025-10-15</time><a href="#">貝貝寵物專業犬舍 × 浪愛一生 聯合義賣週登場</a></li>
+                        <li><time>2025-10-14</time><a href="#">「以領養代替購買」攝影展 即日起免費入場</a></li>
+                        <li><time>2025-10-13</time><a href="#">台中市寵物節 招募攤位與志工中！</a></li>
+                        <li><time>2025-10-09</time><a href="#">寵物行為訓練講座 免費報名開放</a></li>
+                    </ul>
+                </section>
+
+                <aside class="card">
+                    <h3>城市主題</h3>
+                    <div class="promo">
+                        <div>
+                            <div style="font-size:28px;font-weight:900;margin-bottom:8px;">毛孩友善城市計畫</div>
+                            <p>打造收容、醫療、外出都安心的幸福城市。</p>
+                            <p><a class="hero__cta" style="background:var(--brand); color:#fff; text-decoration:none;"
+                                    href="#">瞭解更多</a></p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="cols">
+                <div>
+                    <h4 style="margin:0 0 10px">狗老大</h4>
+                    <p>地址：12345 台中市 北區 市府路 1 號　｜　電話：(04) 1234-5678　｜　服務時間：週一至週五 08:30–17:30</p>
+                    <p><a href="#">隱私權政策</a>　|　<a href="#">資訊安全政策</a>　|　<a href="#">政府網站資料開放宣告</a></p>
+                </div>
+                <div>
+                    <h4 style="margin:0 0 10px">愛心服務</h4>
+                    <p><a href="#">志工報名專區</a><br><a href="#">浪浪救援回報</a><br><a href="#">捐糧與物資登記</a></p>
+                </div>
+                <div>
+                    <h4 style="margin:0 0 10px">社群與訂閱</h4>
+                    <p><a href="#">Facebook</a><br><a href="#">YouTube</a><br><a href="#">電子報訂閱</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="copy">© 2025 Orange City Government. All Rights Reserved.</div>
+    </footer>
+    <script>
+        document.querySelectorAll('.font-size button').forEach(b => {
+            b.addEventListener('click', () => {
+                document.querySelectorAll('.font-size button').forEach(x => x.classList.remove('active'));
+                b.classList.add('active');
+                document.body.style.fontSize = b.dataset.fz + 'px';
+            });
+        });
+        document.querySelectorAll('.hero__slide').forEach(slide => {
+            const h2 = slide.querySelector('h2');
+            const p = slide.querySelector('p');
+            const t = slide.dataset.title || '';
+            const s = slide.dataset.subtitle || '';
+            const link = slide.dataset.link || '#';
+            if (h2) h2.textContent = t;
+            if (p) p.textContent = s;
+            slide.addEventListener('click', e => {
+                location.href = link;
+                e.preventDefault();
+            });
+        });
+        const track = document.getElementById('heroTrack');
+        const slides = Array.from(track.children);
+        const dotsBox = document.getElementById('heroDots');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const ppBtn = document.getElementById('ppBtn');
+
+        let idx = 0, timer = null, playing = true, interval = 4500;
+        slides.forEach((_, i) => {
+            const d = document.createElement('button');
+            d.className = 'dot';
+            d.setAttribute('aria-label', `第 ${i + 1} 張`);
+            d.addEventListener('click', () => go(i));
+            dotsBox.appendChild(d);
+        });
+        const dots = Array.from(dotsBox.children);
+
+        function update() {
+            track.style.transform = `translateX(-${idx * 100}%)`;
+            dots.forEach((d, i) => d.setAttribute('aria-current', i === idx));
+        }
+        function go(i) { idx = (i + slides.length) % slides.length; update(); restart(); }
+        function next() { go(idx + 1); }
+        function prev() { go(idx - 1); }
+
+        function start() { stop(); timer = setInterval(next, interval); playing = true; ppBtn.textContent = '⏸ 暫停'; ppBtn.setAttribute('aria-pressed', 'false'); }
+        function stop() { if (timer) clearInterval(timer); playing = false; ppBtn.textContent = '▶️ 播放'; ppBtn.setAttribute('aria-pressed', 'true'); }
+        function restart() { if (playing) { start(); } }
+
+        nextBtn.addEventListener('click', next);
+        prevBtn.addEventListener('click', prev);
+        ppBtn.addEventListener('click', () => playing ? stop() : start());
+
+        /* 滑鼠懸停暫停、離開繼續 */
+        track.addEventListener('mouseenter', stop);
+        track.addEventListener('mouseleave', start);
+
+        /* 鍵盤 */
+        track.tabIndex = 0;
+        track.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight') next();
+            if (e.key === 'ArrowLeft') prev();
+        });
+
+        /* 觸控 */
+        let sx = 0, dx = 0;
+        track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; stop(); }, { passive: true });
+        track.addEventListener('touchmove', e => { dx = e.touches[0].clientX - sx; }, { passive: true });
+        track.addEventListener('touchend', () => { if (Math.abs(dx) > 40) (dx < 0 ? next() : prev()); dx = 0; start(); });
+
+        /* 啟動 */
+        update(); start();
+    </script>
+</body>
+
+</html>

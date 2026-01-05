@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="../圖片/icon2.png">
+</head>
+
+<body>
+    <section class="section" id="adopt-form">
+        <div class="container">
+            <h2 class="sec-title">領養申請表單</h2>
+            <div class="under"></div>
+
+            <form id="adoptionForm" action="ACTION_URL" method="post" class="form-card" novalidate>
+                <fieldset>
+                    <legend>申請人基本資料</legend>
+                    <div class="grid">
+                        <label class="field">
+                            <span>姓名（必填）</span>
+                            <input type="text" name="name" required placeholder="王小明">
+                            <small class="hint">請填寫真實姓名</small>
+                        </label>
+
+                        <label class="field">
+                            <span>聯絡電話（必填）</span>
+                            <input type="tel" name="phone" required pattern="^[0-9+-]{8,15}$"
+                                placeholder="0912-345-678">
+                            <small class="hint">僅數字 / + / -</small>
+                        </label>
+
+                        <label class="field">
+                            <span>Email（必填）</span>
+                            <input type="email" name="email" required placeholder="you@example.com">
+                        </label>
+
+                        <label class="field">
+                            <span>居住城市（必填）</span>
+                            <input type="text" name="city" required placeholder="台北市">
+                        </label>
+
+                        <label class="field">
+                            <span>完整地址（選填）</span>
+                            <input type="text" name="address" placeholder="範例：大安區仁愛路…">
+                        </label>
+
+                        <label class="field">
+                            <span>住宅型態（必填）</span>
+                            <select name="housing" required>
+                                <option value="" selected disabled>請選擇</option>
+                                <option>自有住宅</option>
+                                <option>與家人同住</option>
+                                <option>租屋</option>
+                                <option>宿舍</option>
+                                <option>其他</option>
+                            </select>
+                        </label>
+
+                        <label class="field">
+                            <span>若為租屋，屋主是否同意？</span>
+                            <select name="landlord_ok">
+                                <option value="" selected>未填</option>
+                                <option>同意</option>
+                                <option>不同意</option>
+                                <option>尚未確認</option>
+                            </select>
+                        </label>
+
+                        <label class="field">
+                            <span>同住成員（人數／年齡）</span>
+                            <input type="text" name="family" placeholder="2 人：30、28 歲；偶爾有家人探訪">
+                        </label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>飼養經驗與現況</legend>
+                    <div class="grid">
+                        <label class="field">
+                            <span>過往飼養經驗（必填）</span>
+                            <textarea name="experience" required rows="3"
+                                placeholder="曾飼養貓／狗…年；是否有結紮、預防針、保險等經驗"></textarea>
+                        </label>
+
+                        <label class="field">
+                            <span>家中是否已有其他寵物？（品種／年齡／是否結紮）</span>
+                            <textarea name="other_pets" rows="3" placeholder="例：米克斯犬 4 歲，已結紮；虎斑貓 2 歲，未結紮"></textarea>
+                        </label>
+
+                        <label class="field">
+                            <span>平日作息與在家時數（必填）</span>
+                            <select name="at_home" required>
+                                <option value="" selected disabled>請選擇</option>
+                                <option>長時間在家（每天 8 小時以上）</option>
+                                <option>中等（每天 4–8 小時）</option>
+                                <option>較少在家（每天 4 小時以下）</option>
+                            </select>
+                        </label>
+
+                        <label class="field">
+                            <span>每日運動與互動安排（必填）</span>
+                            <textarea name="daily_plan" required rows="3" placeholder="每日散步次數、時長；智遊戲／訓練安排等"></textarea>
+                        </label>
+
+                        <label class="field">
+                            <span>美容與梳毛計畫（貴賓／長毛類建議 4–8 週一次）</span>
+                            <select name="grooming_plan">
+                                <option value="" selected>未填</option>
+                                <option>每 4–6 週美容一次</option>
+                                <option>每 7–10 週美容一次</option>
+                                <option>視情況安排</option>
+                            </select>
+                        </label>
+
+                        <label class="field">
+                            <span>外出安全措施（可複選）</span>
+                            <div class="checks">
+                                <label><input type="checkbox" name="safety" value="胸背帶"> 胸背帶</label>
+                                <label><input type="checkbox" name="safety" value="雙重牽繩"> 雙重牽繩</label>
+                                <label><input type="checkbox" name="safety" value="外出包/推車"> 外出包／推車</label>
+                                <label><input type="checkbox" name="safety" value="晶片/名牌"> 晶片／名牌</label>
+                            </div>
+                        </label>
+
+                        <label class="field">
+                            <span>每月預算（飼料／醫療／美容等）</span>
+                            <input type="number" name="budget" min="0" step="100" placeholder="例如 3000">
+                        </label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>認養安排</legend>
+                    <div class="grid">
+                        <label class="field">
+                            <span>可接狗日期（必填）</span>
+                            <input type="date" name="available_date" required>
+                        </label>
+
+                        <label class="field">
+                            <span>可接受試養天數</span>
+                            <select name="trial_days">
+                                <option>7 天</option>
+                                <option selected>10 天</option>
+                                <option>14 天</option>
+                                <option>可討論</option>
+                            </select>
+                        </label>
+
+                        <label class="field">
+                            <span>領養動機與期待（必填）</span>
+                            <textarea name="motivation" required rows="3" placeholder="為什麼想領養？你能提供的生活環境與承諾"></textarea>
+                        </label>
+
+                        <label class="field">
+                            <span>偏好的聯絡方式</span>
+                            <select name="contact_pref">
+                                <option>電話</option>
+                                <option>Email</option>
+                                <option>訊息私訊</option>
+                            </select>
+                        </label>
+                    </div>
+                </fieldset>
+                <label class="agree">
+                    <input type="checkbox" required>
+                    我已閱讀並同意認養須知（包含結紮、規律醫療、善待與不棄養等義務），並同意家訪與後續追蹤。
+                </label>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn primary">送出申請</button>
+                    <button type="reset" class="btn outline">清除重填</button>
+                </div>
+            </form>
+            <p id="formMsg" class="form-msg" hidden>已送出，謝謝你的申請！我們會盡快與你聯絡。</p>
+        </div>
+    </section>
+</body>
+
+</html>

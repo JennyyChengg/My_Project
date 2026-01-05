@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>狗狗品種介紹</title>
+    <link rel="icon" href="../圖片/icon2.png">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Microsoft JhengHei", sans-serif;
+            background: #FDF9F3;
+            color: #083646;
+        }
+
+        header {
+            background: #FF7A21;
+            color: white;
+            padding: 24px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* 每個狗狗卡片 */
+        .dog-card {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        /* 圓形照片 */
+        .dog-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        /* 文字區塊 */
+        .dog-info h2 {
+            margin: 0 0 8px;
+            color: #FF7A21;
+        }
+
+        .dog-info p {
+            margin: 4px 0;
+            line-height: 1.6;
+        }
+
+        /* 手機版：直排 */
+        @media (max-width: 600px) {
+            .dog-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .dog-card img {
+                margin-bottom: 12px;
+            }
+        }
+
+        /* 和 .card 一樣的容器寬度 */
+        header,
+        h1 {
+            max-width: var(--card-w);
+            margin: 0 auto;
+            /* 置中 */
+        }
+
+        /* 可選：調整與卡片的上下距離 */
+        h1 {
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        .container {
+            max-width: var(--card-w);
+            margin: 0 auto;
+            /* 若想讓內文和卡片內側文字對齊，再加 padding-inline: 28px; */
+        }
+
+        /* 卡片底樣式 */
+        .dog-card {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+
+            text-decoration: none;
+            /* 取消超連結底線 */
+            color: inherit;
+            /* 保持文字顏色 */
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+            transition: background .2s ease, box-shadow .2s ease, transform .15s ease;
+        }
+
+        /* 圓形頭像 */
+        .dog-avatar {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* 內容區 */
+        .dog-info h2 {
+            margin: 0 0 8px 0;
+            color: #f27421;
+            font-weight: 700;
+        }
+
+        .dog-info p {
+            margin: 4px 0;
+            color: #255e68;
+        }
+
+        /* 滑鼠移過去：變色 + 陰影 + 微微浮起 */
+        .dog-card:hover {
+            background: #f2e1c8;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .10);
+            transform: translateY(-2px);
+            cursor: pointer;
+        }
+
+        /* 鍵盤可用（可聚焦時也要有效果）*/
+        .dog-card:focus-visible {
+            outline: 3px solid #ff9f4a;
+            /* 無障礙可見的外框 */
+            background: #fff7ec;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>🐾狗狗品種介紹🐾</header>
+        <h1 style="margin-left: 350px;margin-top: 30px;">迷你犬(4公斤以下)</h1>
+        <section class="dog-list">
+
+
+            <!-- 狗狗卡片 1 -->
+            <a class="dog-card" href="狗狗介紹1.html" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/吉娃娃.jpg" alt="吉娃娃">
+                <div class="dog-info">
+                    <h2>吉娃娃(Chihuahua)</h2>
+                    <p> 原產地:墨西哥
+                        <br>
+                        身長(成犬): 約 15~23 公分
+                        <br>
+                        體重(成犬): 約 1~4 公斤
+                        <br>
+                        平均壽命: 15~18歲
+                        <br>
+                        個性:親人、適應力強
+                    </p>
+                </div>
+            </a>
+
+            <!-- 狗狗卡片 2 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/博美犬.webp" alt="博美犬">
+                <div class="dog-info">
+                    <h2>博美犬(Pomeranian)</h2>
+                    <p>德國(波美拉尼亞地區)
+                        <br>
+                        身長(成犬): 約 18~30 公分
+                        <br>
+                        體重(成犬): 約 1~3 公斤
+                        <br>
+                        平均壽命: 12~16歲
+                        <br>
+                        個性:活潑好動、充滿好奇心
+
+                    </p>
+                </div>
+            </a>
+            <!-- 狗狗卡片 3 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/約克夏.jpg" alt="約克夏">
+                <div class="dog-info">
+                    <h2>約克夏(Yorkshire Terrier)</h2>
+                    <p>英國(約克郡)
+                        <br>
+                        身長(成犬): 約 22~24 公分
+                        <br>
+                        體重(成犬): 約 2~3 公斤
+                        <br>
+                        平均壽命: 12~15歲
+                        <br>
+                        個性:勇敢忠誠、有些固執
+
+                    </p>
+
+                </div>
+            </a>
+            <!-- 狗狗卡片 4 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/馬爾濟斯.jpg" alt="馬爾濟斯">
+                <div class="dog-info">
+                    <h2>馬爾濟斯(Maltese)</h2>
+                    <p>
+                        馬爾他共合國(馬爾他島)
+                        <br>
+                        身長(成犬): 約 20~25 公分
+                        <br>
+                        體重(成犬): 約 1~3 公斤
+                        <br>
+                        平均壽命: 12~15歲
+                        <br>
+                        個性:溫馴乖巧、友善親人
+                    </p>
+
+                </div>
+            </a>
+            <h1 style="margin-left: 350px;margin-top: 30px;">小型犬(5~10公斤)</h1>
+
+            <!-- 狗狗卡片 5 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/臘腸犬.jpeg" alt="臘腸犬">
+                <div class="dog-info">
+                    <h2>臘腸犬(Dachshund)</h2>
+                    <p>
+                        德國
+                        <br>
+                        身長(成犬):依品種(迷你型及標準型)有差距
+                        <br>
+                        體重(成犬): 約 4~10 公斤
+                        <br>
+                        平均壽命: 12~15歲
+                        <br>
+                        個性:聰明、溫和、小頑皮
+                    </p>
+
+                </div>
+            </a>
+
+            <!-- 狗狗卡片 6  -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/紅貴賓.jpg" alt="紅貴賓">
+                <div class="dog-info">
+                    <h2>迷你貴賓犬(Miniature Poodle)</h2>
+                    <p>
+                        德國、法國
+                        <br>
+                        身長(成犬):約 25~28 公分
+                        <br>
+                        體重(成犬): 約 6~10 公斤
+                        <br>
+                        平均壽命: 12~14歲
+                        <br>
+                        個性:活潑友善、智商極高、情緒感知敏銳
+                    </p>
+
+                </div>
+            </a>
+            <!-- 狗狗卡片 7 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/法鬥.jpg" alt="法鬥犬">
+                <div class="dog-info">
+                    <h2>法國鬥牛犬(French Bulldog)</h2>
+                    <p>
+                        法國
+                        <br>
+                        身長(成犬):約 24~34 公分
+                        <br>
+                        體重(成犬): 約 8~10 公斤
+                        <br>
+                        平均壽命: 10~12歲
+                        <br>
+                        個性:黏主人、溫馴友好
+
+                    </p>
+
+                </div>
+            </a>
+            <!-- 狗狗卡片 8 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/比熊犬.jpg" alt="比熊犬">
+                <div class="dog-info">
+                    <h2>比熊犬(Bichon Frisé)</h2>
+                    <p> 原產地:西班牙
+                        <br>
+                        身長(成犬): 約 23~30 公分
+                        <br>
+                        體重(成犬): 約 5~9 公斤
+                        <br>
+                        平均壽命: 12~15歲
+                        <br>
+                        個性:親人、適應力強
+                    </p>
+                </div>
+            </a>
+            <!-- 狗狗卡片 9 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/西施犬.webp" alt="西施犬">
+                <div class="dog-info">
+                    <h2>西施犬(Shih Tzu)</h2>
+                    <p>原產地:中國
+                        <br>
+                        身長(成犬): 約 23~28 公分
+                        <br>
+                        體重(成犬): 約 4~7 公斤
+                        <br>
+                        平均壽命: 10~16歲
+                        <br>
+                        個性:性格友好、溫順、個性獨立
+
+                    </p>
+
+                </div>
+            </a>
+            <!-- 狗狗卡片 10 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/雪納瑞.jpg" alt="迷你雪納瑞">
+                <div class="dog-info">
+                    <h2>迷你雪納瑞(Miniature Schnauzer)</h2>
+                    <p>原產地:德國
+                        <br>
+                        身長(成犬): 約 30~36 公分
+                        <br>
+                        體重(成犬): 約 5~9 公斤
+                        <br>
+                        平均壽命: 12~15歲
+                        <br>
+                        個性:聰明、忠心、天性友善
+
+                    </p>
+
+                </div>
+            </a>
+            <!-- 狗狗卡片 １１ -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/狐狸犬.jpg" alt="狐狸犬">
+                <div class="dog-info">
+                    <h2>狐狸犬(Japanese Spitz)</h2>
+                    <p>
+                        原產地:日本
+                        <br>
+                        身長(成犬): 約 30~36 公分
+                        <br>
+                        體重(成犬): 約 6~10 公斤
+                        <br>
+                        平均壽命: 12~15歲
+                        <br>
+                        個性:敏感、愛好自由
+                    </p>
+
+                </div>
+            </a>
+            <!-- 狗狗卡片 １2 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/西高地白梗.jpg" alt="西高地白梗">
+                <div class="dog-info">
+                    <h2>西高地白梗(West Highland White Terrier)</h2>
+                    <p>
+                        原產地:英國(蘇格蘭)
+                        <br>
+                        身長(成犬): 約 26~28 公分
+                        <br>
+                        體重(成犬): 約 7~9 公斤
+                        <br>
+                        平均壽命: 12~15歲
+                        <br>
+                        個性:活潑好動、自主意識
+                    </p>
+
+                </div>
+            </a>
+            <h1 style="margin-left: 350px;margin-top: 30px;">中型犬(11~25公斤)</h1>
+            <!-- 狗狗卡片 １3 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/柴犬.png" alt="柴犬">
+                <div class="dog-info">
+                    <h2>柴犬(Shiba Inu)</h2>
+                    <p>
+                        原產地:日本
+                        <br>
+                        身長(成犬): 約 35~41 公分
+                        <br>
+                        體重(成犬): 約 7~10 公斤
+                        <br>
+                        平均壽命: 12~15歲
+                        <br>
+                        個性:獨立、固執、警戒心強
+                    </p>
+
+                </div>
+            </a>
+            <!-- 狗狗卡片 １4 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/柯基.jpg" alt="柯基">
+                <div class="dog-info">
+                    <h2>柯基(Welsh Corgi)</h2>
+                    <p>
+                        原產地:英國(威爾斯)
+                        <br>
+                        身長(成犬): 約 25~30 公分
+                        <br>
+                        體重(成犬): 約 11~14 公斤
+                        <br>
+                        平均壽命: 12~15歲
+                        <br>
+                        個性:聰明、忠誠、友善
+                    </p>
+
+                </div>
+            </a>
+            <h1 style="margin-left: 350px;margin-top: 30px;">大型犬(超過25公斤)</h1>
+            <!-- 狗狗卡片 １5 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/拉不拉多.webp" alt="拉不拉多">
+                <div class="dog-info">
+                    <h2>拉不拉多(Labrador Retriever)</h2>
+                    <p>
+                        原產地:英國
+                        <br>
+                        身長(成犬): 約 54~57 公分
+                        <br>
+                        體重(成犬): 約 25~34 公斤
+                        <br>
+                        平均壽命: 10~12歲
+                        <br>
+                        個性:溫馴、聰明、服從性高
+                    </p>
+
+                </div>
+            </a>
+            <!-- 狗狗卡片 １6 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/黃金獵犬.webp" alt="黃金獵犬">
+                <div class="dog-info">
+                    <h2>黃金獵犬(Golden Retriever)</h2>
+                    <p>
+                        原產地:英國(蘇格蘭)
+                        <br>
+                        身長(成犬): 約 54~61 公分
+                        <br>
+                        體重(成犬): 約 25~34 公斤
+                        <br>
+                        平均壽命: 10~13歲
+                        <br>
+                        個性:親人、不具攻擊性
+                    </p>
+
+                </div>
+            </a>
+            <!-- 狗狗卡片 １7 -->
+            <a class="dog-card" href="https://example.com/bichon" aria-label="前往比熊犬介紹頁">
+                <img src="../圖片/哈士奇.jpg" alt="哈士奇">
+                <div class="dog-info">
+                    <h2>哈士奇(Siberian Husky)</h2>
+                    <p>
+                        原產地:俄羅斯(西伯利亞)
+                        <br>
+                        身長(成犬): 約 50~60 公分
+                        <br>
+                        體重(成犬): 約 16~27 公斤
+                        <br>
+                        平均壽命: 10~15歲
+                        <br>
+                        個性:聰明、自我意識高
+                    </p>
+
+                </div>
+            </a>
+
+        </section>
+    </div>
+</body>
+
+</html>

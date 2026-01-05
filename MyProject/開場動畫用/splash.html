@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>狗狗認養網站</title>
+  <link rel="icon" href="../圖片/icon2.png">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      background:#FFF5CC;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    /* 置中容器 */
+    .splash {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      /* 告知可點擊 */
+      transition: opacity .6s ease;
+    }
+
+    .splash.fade-out {
+      opacity: 0;
+    }
+
+    /* 點擊後淡出 */
+
+    /* 圖示大小與旋轉動畫 */
+    .logo {
+      width: clamp(140px, 20vmin, 240px);
+      height: auto;
+      display: block;
+      animation: spin 4s linear infinite;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .25));
+    }
+
+    /* 點一下進入網站的提示 */
+    .hint {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #0d2a33;
+      font: 16px/1.4 "Microsoft JhengHei", Arial, sans-serif;
+      opacity: .8;
+    }
+
+    .dog-run {
+      width: 200px;
+      /* 圖片大小調整 */
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      animation: runTowards 1s infinite linear;
+    }
+
+    /* 讓狗狗縮放，好像越跑越近 */
+    @keyframes runTowards {
+      0% {
+        transform: scale(1) translateY(0);
+      }
+
+      25% {
+        transform: scale(1.1) translateY(-10px);
+        /* 上下動一點，模擬跑步 */
+      }
+
+      50% {
+        transform: scale(1.2) translateY(0);
+      }
+
+      75% {
+        transform: scale(1.3) translateY(-10px);
+      }
+
+      100% {
+        transform: scale(1.4) translateY(0);
+        /* 越來越大，像跑向前 */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="splash" id="splash" aria-label="點一下進入網站">
+    <img src="../圖片/狗狗跑步圖.png" class="dog-run" alt="跑步的狗狗">
+  </div>
+  <div class="hint">點一下進入網站</div>
+
+  <script>
+    // 要跳去的目標頁面
+    const HOME = "../網站主頁/PAGE01.html"; 
+
+    const splash = document.getElementById("splash");
+
+    // 點擊或按鍵都會進入主頁
+    function goHome() {
+      splash.classList.add('fade-out');  // 先做淡出效果
+      setTimeout(() => {
+        window.location.href = HOME;
+      }, 500); // 0.5秒後跳頁
+    }
+
+    // 點擊畫面跳轉
+    splash.addEventListener("click", goHome);
+
+    // Enter 或 Space 也能跳轉
+    window.addEventListener("keydown", (e) => {
+      if (e.code === "Enter" || e.code === "Space") {
+        goHome();
+      }
+    });
+  </script>
+</body>
+
+</html>
